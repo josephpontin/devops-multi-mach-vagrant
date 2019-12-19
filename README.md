@@ -6,4 +6,4 @@ Use `vagrant ssh app` to enter the VM running the app.
 
 Use `cd /vagrant/app` to get to the app folder.
 
-Use `sudo npm install`, then `sudo npm start`, to start the app running.
+Use `sudo npm install`, then `sudo npm start &`, to start the app running.
