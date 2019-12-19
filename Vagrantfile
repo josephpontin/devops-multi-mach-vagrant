@@ -4,7 +4,10 @@ required_plugins.each do |plugin|
     sudo exec "vagrant plugin install #{plugin}" unless Vagrant.has_plugin? plugin
 end
 
+
+# Creates 'outer' VM
 Vagrant.configure("2") do |config|
+  # Creates 'inner' VM to run app
   config.vm.define "app" do |app|
     app.vm.box = "ubuntu/xenial64"
     app.vm.network "private_network", ip: "192.168.10.100"
@@ -13,6 +16,7 @@ Vagrant.configure("2") do |config|
     app.vm.provision "shell", path: "environment/app/provision.sh", privileged: false
   end
 
+  # Creates inner VM to run DB
   config.vm.define "db" do |db|
     config.vm.box = "ubuntu/xenial64"
     config.vm.network "private_network", ip: "192.168.10.150"
