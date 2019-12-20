@@ -17,7 +17,7 @@ sudo apt-get update -y
 
 # remove existing mongod.conf
 sudo rm /etc/mongod.conf
-# link to mongod.conf shared from host
+# link to mongod.conf shared from host - synced connection
 sudo ln -s /home/ubuntu/environment/mongod.conf /etc/mongod.conf
 
 # start mongodb
